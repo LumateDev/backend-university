@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Task3</title>
+</head>
+<body>
+<div class="main">
+    <form action="send.php" method="POST">
+
+      <div class="mb-3">
+        <label for="InputName" class="form-label">Имя(Текстовое поле):</label>
+        <input type="text" class="form-control"name ="name" id="InputName">
+      </div>
+
+        <div class="mb-3">
+          <label for="InputEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="InputEmail" name ="email" placeholder="Введите вашу почту">
+        </div>
+        <div class="mb-3">
+          <label for="InputDate" class="form-label">Текстовое поле даты:</label>
+          <input type="date" class="form-control" name="date"  id="InputDate">
+        </div>
+
+        <div class="mb-3">
+          <label for="InputGender" class="form-label">Пол: 
+          <br>
+            <label>
+              М
+              <input type="radio" class = "form-check-input" name="gender" value="М" >
+            </label>
+            <br>
+            <label>
+              Ж
+              <input type="radio" class = "form-check-input" name="gender" value="Ж" >
+            </label>
+            </label>
+        </div>
+
+        <div class="mb-3">
+          <label for="InputLimbs" class="form-label">Выберете количество конечностей</label>
+          <br>
+           <label>
+             2
+             <input type="radio" class = "form-check-input" name="limb" value="2">
+           </label>
+           <label>
+             3
+             <input type="radio" class = "form-check-input" name="limb" value="3">
+           </label>
+           <label>
+             4
+             <input type="radio" class = "form-check-input" name="limb" value="4">
+           </label>
+        </div>
+
+        <div class="mb-3">
+          <span class="input-group-text">Сверхспособности</span>
+          <select class="form-select" name="Superpowers[]" multiple = "multiple">
+            <option id = "1" value = "1"> Бессмертие </option>
+            <option id = "2" value = "2"> Прохождение сквозь стены </option>
+            <option id = "3" value = "3"> Левитация </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <span class="input-group-text">Биография</span>
+          <textarea class="form-control" name="bio"></textarea>
+        </div>
+
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" name="contract">
+          <label class="form-check-label" for="exampleCheck1">С контрактом ознакомлен</label>
+        </div>
+
+        <button type="submit" class="btn btn-secondary">Отправить</button>
+      </form>
+    </div>  
+</body>
+</html>
