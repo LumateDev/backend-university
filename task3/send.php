@@ -11,7 +11,7 @@ header('Content-Type: text/html; charset=UTF-8');
         $errors = TRUE;
       }
 
-    if (is_numeric($_POST['name']) || !preg_match('/^[a-zA-Z\s]+$/', $_POST['name'])) {
+      if (is_numeric($_POST['name']) && !preg_match('/^[a-zA-Z\s]+$/', $_POST['name']) && !preg_match('/^[а-яА-Я\s]+$/', $_POST['name'])) {
         print('Заполните имя корректно <br/>');
         $errors = TRUE;
      }
@@ -36,6 +36,10 @@ header('Content-Type: text/html; charset=UTF-8');
     if ($_POST['limb'] == false) exit ("КОЛ-ВО КОНЕЧНОСТЕЙ не выбрано!");
     if (empty($_POST['bio'])) exit ("Поле БИОГРАФИЯ не заполнено!");
     if ($_POST['contract'] == false) exit ("Кнопка КОНТРАКТ не нажата!");
+    if($_POST['Superpowers'] == 0)
+    {
+        exit ("Выбрано некорректное значение СУПЕРСПОСОБНОСТЕЙ!");
+    }
     foreach ($_POST['Superpowers'] as $superpowers)
         {
             if (!$superpowers > 0 && !$superpowers < 4)
