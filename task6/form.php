@@ -90,11 +90,11 @@
           </div>
         </div>
 
-        <div class="mb-3">
-          <span class="input-group-text">Сверхспособности</span>
-          <div class="form_item <?php if ($errors['Superpowers']) {
+        <div class="mb-3 <?php if ($errors['Superpowers']) {
             print 'error';
         } ?>">
+          <span class="input-group-text">Сверхспособности</span>
+          <div class="form_item ">
           <select class="form-select" name="Superpowers[]" multiple = "multiple">
             <option  value = 1 <?php if (isset($_COOKIE["1"])) if ($_COOKIE["1"]=="true") echo "selected" ?> > Бессмертие </option>
             <option  value = 2 <?php if (isset($_COOKIE["2"])) if ($_COOKIE["2"]=="true") echo "selected" ?> > Прохождение сквозь стены </option>
@@ -103,10 +103,10 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3  <?php if ($errors['bio']) {print 'error';} ?>">
           
-          <span class="input-group-text">Биография</span>
-          <textarea class="form-control"  name="bio"<?php if ($errors['bio']) {print 'error';} ?>><?php print $values['bio']; ?></textarea>
+          <span class="input-group-text ">Биография</span>
+          <textarea name="bio" class="form-control"> <?php print $values['bio']; ?></textarea>
   
         </div>
         <div class="mb-3 form-check">

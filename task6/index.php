@@ -60,6 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('Superpowers_error', '', time() + 24 * 60 * 60);
         $messages[] = '<div class="error">Выберите суперсилы.</div>';
     }
+    if ($errors['bio']) {
+        setcookie('bio_error', '', time() + 24 * 60 * 60);
+        $messages[] = '<div class="error">Заполните биографию.</div>';
+    }
     if ($errors['contract']) {
         setcookie('contract_error', '', time() + 24 * 60 * 60);
         $messages[] = '<div class="error">Согласитесь с условиями.</div>';
@@ -74,13 +78,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $statement -> execute([$_SESSION['uid']]);
         $line = $statement -> fetch(PDO::FETCH_ASSOC);
 
-        $values = array();
+        
         $values['name'] = $line['name'];
         $values['email'] = $line['email'];
         $values['date'] = $line['date'];
         $values['gender'] = $line['gender'];
         $values['limb'] = $line['limb'];
-        //$values['Superpowers'] = $line['Superpowers'];
+        $values['Superpowers'] = $line['Superpowers'];
         $values['bio'] = $line['bio'];
         $values['contract'] = $line['contract'];
         $messages[] = sprintf('<div class="error_message"> Вход с логином  и номером пользователя: </div>
@@ -198,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (empty($_POST['bio'])) { setcookie('bio_error', '1', time() + 24 * 60 * 60); $errors = TRUE; }
     else
     {
-        if (empty($_POST['bio']) || is_numeric($_POST['bio']) || !preg_match('/^[a-zA-Zа-яёА-ЯЁ0-9]/', $_POST['bio']))
+        if (is_numeric($_POST['bio']) || !preg_match('/^[a-zA-Zа-яёА-ЯЁ0-9]/', $_POST['bio']))
         {
             setcookie('bio_error', '2', time() + 24 * 60 * 60);
             $errors = TRUE;

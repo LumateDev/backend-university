@@ -63,6 +63,37 @@
         ?>
         </tbody>
       </table>
+      <div class="">
+        <p>
+          Статистика пользователей
+        </p>
+        <?php
+      $result1 = $database -> query("SELECT * FROM Connection WHERE ability_id  = 1");
+      $result2 = $database -> query("SELECT * FROM Connection WHERE ability_id  = 2");
+      $result3 = $database -> query("SELECT * FROM Connection WHERE ability_id  = 3");
+      $count1 = 0;
+      $count2 = 0;
+      $count3 = 0;
+      while($rowCon = $result1 -> fetch()){
+        if($rowCon['ability_id'] == 1){
+          $count1++;
+        }
+      }
+      while($rowCon = $result2 -> fetch()){
+        if($rowCon['ability_id'] == 2){
+          $count2++;
+        }
+      }
+      while($rowCon = $result3 -> fetch()){
+        if($rowCon['ability_id'] == 3){
+          $count3++;
+        }
+      }
+      echo '<p style = "margin-bottom: 5px;">Левитацией обладает - '.$count1.' пользователей</p>';
+      echo '<p style = "margin-bottom: 5px;">Бессметрием обладает - '.$count2.' пользователей</p>';
+      echo '<p style = "margin-bottom: 5px;">Прохождением сквозь стены обладает - '.$count3.' пользователей</p>';
+      ?>
+      </div>
       </div>
       <div class = "w-25 p-3" style="margin: 50px;" >
       <input name = "User_Record" type = "text" placeholder = "ID пользователя" class="form-control">
