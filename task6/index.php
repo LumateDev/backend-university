@@ -114,7 +114,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     //  Включаем файл form.php
     //  в него передаются переменные $messages, $errors, $values
-    include('form.php');
+    include(dirname(__FILE__).'/form.php');
+    exit();
 } else {
     //  Если метод был POST
     //  Флаг для отлова ошибок полей
